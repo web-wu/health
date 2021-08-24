@@ -1,0 +1,6 @@
+com\tabwu\health\mapper\SetmealMapper.class
+com\tabwu\health\service\impl\CheckGroupServiceImpl.class
+com\tabwu\health\mapper\CheckItemMapper.class
+com\tabwu\health\service\impl\CheckItemServiceImpl.class
+com\tabwu\health\service\impl\SetmealServiceImpl.class
+com\tabwu\health\mapper\CheckGroupMapper.class

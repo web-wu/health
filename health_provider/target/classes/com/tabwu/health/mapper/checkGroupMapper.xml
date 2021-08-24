@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tabwu.health.mapper.CheckGroupMapper">
+    <insert id="addCheckGroup" parameterType="com.tabwu.health.entity.CheckGroup" useGeneratedKeys="true" keyProperty="id">
+        insert into t_checkgroup(code,name,helpCode,sex,remark,attention)
+        values
+            (#{code},#{name},#{helpCode},#{sex},#{remark},#{attention})
+    </insert>
+
+    <insert id="setCheckItem_CheckGroup" parameterType="hashmap">
+        insert into t_checkgroup_checkitem(checkgroup_id, checkitem_id)
+        values (#{checkgroup_id},#{checkitem_id})
+    </insert>
+
+    <select id="findCheckGroup" parameterType="string" resultType="com.tabwu.health.entity.CheckGroup">
+        select id,code,name,helpCode,sex,remark,attention from t_checkgroup
+        <if test="value != null and value.length > 0">
+            where code = #{value} or name = #{value}
+        </if>
+    </select>
+
+    <select id="CheckCheckGroupInCheckGroupCheckItem" resultType="long" parameterType="int">
+        select count(*) from t_setmeal_checkgroup where checkgroup_id = #{checkGroup_id}
+    </select>
+
+    <delete id="clearStationCheckGroupAndCheckItem" parameterType="int">
+        delete from t_checkgroup_checkitem where checkgroup_id = #{checkGroup_id}
+    </delete>
+    <delete id="deleteCheckGroup" parameterType="int">
+        delete from t_checkgroup where id = #{checkGroup_id}
+    </delete>
+
+    <select id="getCheckItemIdsBycheckGroupId" parameterType="int" resultType="int">
+        select checkitem_id from t_checkgroup_checkitem where checkgroup_id = #{checkGroup_id}
+    </select>
+
+
+    <delete id="clearStationInCheckItemAndCheckGroup" parameterType="int">
+        delete from t_checkgroup_checkitem where checkgroup_id = #{checkGroup_id}
+    </delete>
+    
+    <update id="updateCheckGroup" parameterType="com.tabwu.health.entity.CheckGroup">
+        update t_checkgroup
+        <set>
+            <if test="code != null">
+                code = #{code},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="helpCode != null">
+                helpCode = #{helpCode},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="attention != null">
+                attention = #{attention},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

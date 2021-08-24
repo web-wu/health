@@ -1,0 +1,14 @@
+com\tabwu\health\entity\OrderSetting.class
+com\tabwu\health\entity\Member.class
+com\tabwu\health\entity\PageResult.class
+com\tabwu\health\entity\QueryPageBean.class
+com\tabwu\health\entity\Permission.class
+com\tabwu\health\entity\Role.class
+com\tabwu\health\entity\Setmeal.class
+com\tabwu\health\constant\MessageConstant.class
+com\tabwu\health\entity\CheckItem.class
+com\tabwu\health\entity\Menu.class
+com\tabwu\health\entity\Result.class
+com\tabwu\health\entity\User.class
+com\tabwu\health\entity\Order.class
+com\tabwu\health\entity\CheckGroup.class
