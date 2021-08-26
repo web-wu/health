@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [26/Aug/2021:17:04:19 +0800] "GET /pages/ordersetting.html HTTP/1.1" 304 - http-bio-80-exec-1 67
+0:0:0:0:0:0:0:1 - - [26/Aug/2021:17:04:19 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-80-exec-3 5
+0:0:0:0:0:0:0:1 - - [26/Aug/2021:17:04:21 +0800] "GET /js/axios.min.map HTTP/1.1" 404 983 http-bio-80-exec-4 2
+0:0:0:0:0:0:0:1 - - [26/Aug/2021:17:04:31 +0800] "GET /template/ordersetting_template.xlsx HTTP/1.1" 200 8707 http-bio-80-exec-5 4
+0:0:0:0:0:0:0:1 - - [26/Aug/2021:17:05:47 +0800] "POST /ordersetting/upload HTTP/1.1" 200 73 http-bio-80-exec-7 1351

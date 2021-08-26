@@ -7,8 +7,11 @@ com\tabwu\health\entity\Role.class
 com\tabwu\health\entity\Setmeal.class
 com\tabwu\health\constant\MessageConstant.class
 com\tabwu\health\entity\CheckItem.class
+com\tabwu\health\utils\POI.class
 com\tabwu\health\entity\Menu.class
 com\tabwu\health\entity\Result.class
+com\tabwu\health\utils\QiNiuUtil.class
 com\tabwu\health\entity\User.class
+com\tabwu\health\utils\POIUtils.class
 com\tabwu\health\entity\Order.class
 com\tabwu\health\entity\CheckGroup.class
