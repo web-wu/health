@@ -18,4 +18,6 @@ public interface CheckItemMapper {
     Long updateCheckItem(CheckItem checkItem);
 
     List<CheckItem> findAllCheckItem();
+
+    CheckItem findCheckItemById(Integer id);
 }

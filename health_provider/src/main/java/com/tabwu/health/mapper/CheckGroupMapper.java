@@ -2,6 +2,7 @@ package com.tabwu.health.mapper;
 
 import com.github.pagehelper.Page;
 import com.tabwu.health.entity.CheckGroup;
+import com.tabwu.health.entity.Setmeal;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,5 +25,7 @@ public interface CheckGroupMapper {
     Long clearStationInCheckItemAndCheckGroup(Integer checkGroup_id);
 
     Long updateCheckGroup(CheckGroup checkGroup);
+
+    CheckGroup findCheckGroupById(Integer id);
 
 }

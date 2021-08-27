@@ -15,4 +15,41 @@
         values
         (#{name},#{code},#{helpCode},#{sex},#{age},#{price},#{remark},#{attention},#{img})
     </insert>
+
+
+    <select id="getAllSetmeal" resultType="com.tabwu.health.entity.Setmeal">
+        select * from t_setmeal
+    </select>
+
+
+    <resultMap type="com.tabwu.health.entity.Setmeal" id="baseResultMap">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="helpCode" property="helpCode"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="price" property="price"/>
+        <result column="remark" property="remark"/>
+        <result column="attention" property="attention"/>
+        <result column="img" property="img"/>
+    </resultMap>
+    <resultMap type="com.tabwu.health.entity.Setmeal"
+               id="findByIdResultMap"
+               extends="baseResultMap">
+        <collection property="checkGroups"
+                    javaType="ArrayList"
+                    ofType="com.tabwu.health.entity.CheckGroup"
+                    column="id"
+                    select="com.tabwu.health.mapper.CheckGroupMapper.findCheckGroupById">
+        </collection>
+    </resultMap>
+    <select id="getSetmealById" resultMap="findByIdResultMap">
+        select * from t_setmeal  where id=#{id}
+    </select>
+
+
+    <select id="getSetmealById_mobile" resultType="com.tabwu.health.entity.Setmeal" parameterType="int">
+        select * from t_setmeal  where id=#{id}
+    </select>
 </mapper>

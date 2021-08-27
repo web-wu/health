@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import redis.clients.jedis.JedisPool;
 
+import java.util.List;
 import java.util.Set;
 
 @Service(interfaceClass = SetmealService.class)
@@ -60,5 +61,20 @@ public class SetmealServiceImpl implements SetmealService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Setmeal> getAllSetmeal() {
+        return setmealMapper.getAllSetmeal();
+    }
+
+    @Override
+    public Setmeal findSetmealById(Integer id) {
+        return setmealMapper.getSetmealById(id);
+    }
+
+    @Override
+    public Setmeal getSetmealById_mobile(Integer id) {
+        return setmealMapper.getSetmealById_mobile(id);
     }
 }
