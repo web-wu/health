@@ -5,9 +5,13 @@ import com.tabwu.health.constant.MessageConstant;
 import com.tabwu.health.entity.Result;
 import com.tabwu.health.entity.Setmeal;
 import com.tabwu.health.service.SetmealService;
+import com.tabwu.health.utils.SMSUtil;
+import com.tabwu.health.utils.ValidateCodeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import redis.clients.jedis.JedisPool;
 
 import java.util.List;
 
@@ -17,6 +21,9 @@ public class SetmealController_mobile {
 
     @Reference
     private SetmealService setmealService;
+
+    @Autowired
+    private JedisPool jedisPool;
 
     private Result result = new Result();
 
@@ -60,6 +67,25 @@ public class SetmealController_mobile {
             result.setFlag(false);
             result.setMessage(MessageConstant.QUERY_SETMEAL_FAIL);
         }
+        return result;
+    }
+
+
+    @RequestMapping("/sendvalidateCode")
+    public Result sendvalidateCode(@RequestParam("telephone") String telephone) {
+
+        Integer validateCode = ValidateCodeUtils.generateValidateCode(6);
+
+        Boolean aBoolean = SMSUtil.sendSMSShortMessage(telephone, validateCode.toString());
+
+        if (aBoolean) {
+            jedisPool.getResource().setex(telephone + MessageConstant.SENDTYPE_ORDER,60 * 5,validateCode.toString());
+        }
+
+        result.setFlag(true);
+
+        result.setMessage(MessageConstant.SEND_VALIDATECODE_SUCCESS);
+
         return result;
     }
 }

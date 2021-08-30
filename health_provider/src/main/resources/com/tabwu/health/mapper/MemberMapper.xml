@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tabwu.health.mapper.MemberMapper">
+
+    <insert id="addMember" parameterType="com.tabwu.health.entity.Member" useGeneratedKeys="true" keyProperty="id">
+        insert into t_member(fileNumber,name,sex,idCard,phoneNumber,regTime,password,email,birthday,remark)
+        values (fileNumber,name,sex,idCard,phoneNumber,regTime,password,email,birthday,remark)
+    </insert>
+
+    <select id="getMemberByPhone" parameterType="string" resultType="com.tabwu.health.entity.Member">
+        select * from t_member where phoneNumber = #{phoneNumber}
+    </select>
+</mapper>

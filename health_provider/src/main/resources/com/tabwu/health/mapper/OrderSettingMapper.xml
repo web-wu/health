@@ -14,4 +14,8 @@
     <update id="updateOrderSetting" parameterType="com.tabwu.health.entity.OrderSetting">
         update t_ordersetting set number = #{number} where orderDate = #{orderDate};
     </update>
+
+    <select id="checkOrderSettingNumberByOrderData" resultType="com.tabwu.health.entity.OrderSetting" parameterType="string">
+        select number,reservations from t_ordersetting where orderDate = #{orderDate};
+    </select>
 </mapper>

@@ -9,4 +9,6 @@ public interface OrderSettingMapper {
     Long checkOrderSettingByOrderDate(String orderDate);
 
     void updateOrderSetting(OrderSetting orderSetting);
+
+    OrderSetting checkOrderSettingNumberByOrderData(String orderDate);
 }

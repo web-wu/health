@@ -120,6 +120,13 @@
                             clock = window.setInterval(doLoop,1000)
 
                             /*send validate code request*/
+
+                            axios.post("/setmeal/sendvalidateCode?telephone=" + this.orderInfo.telephone).then(res => {
+                                if (res.data.flag) {
+                                    this.$message.info("验证码已发送，请注意查收！")
+                                }
+                            })
+
                         } else {
                             this.$message.error("手机号格式有误，请从新填写！！！")
                         }
@@ -133,7 +140,14 @@
                         }
                         if (this.orderInfo.idCard && this.orderInfo.telephone) {
                         //    添加预约信息
-
+                            axios.post("/order/addOrderOnline", this.orderInfo).then(res => {
+                                if (res.data.flag) {
+                                    this.$message.success(res.data.message)
+                                    window.location.href = "orderSuccess.html?orderId=" + res.data.data
+                                } else {
+                                    this.$message.error(res.data.message)
+                                }
+                            })
                         }
                     }
                 },
