@@ -148,6 +148,15 @@
             <artifactId>spring-security-taglibs</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+        </dependency>
+
         <!--SMS send-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -164,6 +173,7 @@
             <artifactId>httpcore</artifactId>
             <version>4.4.12</version>
         </dependency>
+
     </dependencies>
 
 </project>

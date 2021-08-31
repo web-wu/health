@@ -230,6 +230,17 @@
                 this.findPage()
             },
             methods: {
+                //权限不足提示
+                showMessage(r){
+                    if(r == 'Error: Request failed with status code 403'){
+                        //权限不足
+                        this.$message.error('无访问权限');
+                        return;
+                    }else{
+                        this.$message.error('未知错误');
+                        return;
+                    }
+                },
                 //编辑
                 handleEdit() {
                     this.$refs["dataEditForm"].validate(valid => {
@@ -322,6 +333,8 @@
                                     message: '删除失败!'
                                 });
                             }
+                        }).catch(r => {
+                            this.showMessage(r);
                         })
 
                     }).catch(() => {

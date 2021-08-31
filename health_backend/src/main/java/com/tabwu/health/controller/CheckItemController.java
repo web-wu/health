@@ -7,6 +7,7 @@ import com.tabwu.health.entity.PageResult;
 import com.tabwu.health.entity.QueryPageBean;
 import com.tabwu.health.entity.Result;
 import com.tabwu.health.service.CheckItemService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -55,6 +56,8 @@ public class CheckItemController {
         return result;
     }
 
+
+    @PreAuthorize("hasAuthority('CHECKITEM_DELETE')")
     @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
     public Result deleteCheckItem(Integer id) {
         try {

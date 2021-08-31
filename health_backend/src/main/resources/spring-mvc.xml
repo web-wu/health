@@ -11,7 +11,7 @@
        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 ">
 
-    <context:component-scan base-package="com.tabwu.health.controller"></context:component-scan>
+    <context:component-scan base-package="com.tabwu.health"></context:component-scan>
 
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
 
@@ -31,8 +31,10 @@
 
     <dubbo:registry address="zookeeper://123.57.193.24:2181"></dubbo:registry>
 
-    <dubbo:annotation package="com.tabwu.health.controller"></dubbo:annotation>
+    <dubbo:annotation package="com.tabwu.health"></dubbo:annotation>
 
     <dubbo:consumer timeout="600000"></dubbo:consumer>
+
+    <import resource="classpath:spring-security.xml"></import>
 
 </beans>

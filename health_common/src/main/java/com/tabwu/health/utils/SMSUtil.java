@@ -42,4 +42,19 @@ public class SMSUtil {
         }
     }
 
+
+    public static Boolean sendSMSMemberLogin(String smsMob,String code) {
+
+        HttpClientUtil client = HttpClientUtil.getInstance();
+
+        String smsText = "您的验证码为:" + code + "，3分钟内有效，请勿泄露他人！！！";
+        //UTF发送
+        int result = client.sendMsgUtf8(Uid, Key, smsText, smsMob);
+        if(result>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

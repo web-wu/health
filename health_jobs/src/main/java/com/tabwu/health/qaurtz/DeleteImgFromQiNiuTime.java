@@ -1,11 +1,11 @@
 package com.tabwu.health.qaurtz;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.tabwu.health.service.SetmealService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class DeleteImgFromQiNiuTime {
-    @Autowired
+    @Reference
     private SetmealService setmealService;
 
     public void deleteImg() {
