@@ -13,7 +13,6 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberMapper memberMapper;
 
-
     @Override
     public Long addMember(Member member) {
         return memberMapper.addMember(member);
@@ -22,5 +21,25 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Member getMemberByPhone(String phoneNumber) {
         return memberMapper.getMemberByPhone(phoneNumber);
+    }
+
+    @Override
+    public Integer getMemberByDate(String today) {
+        return memberMapper.getMemberByDate(today);
+    }
+
+    @Override
+    public Integer getAllMember() {
+        return memberMapper.getAllMember();
+    }
+
+    @Override
+    public Integer getBeforeThisWeekAllMember(String thisWeekMonday) {
+        return memberMapper.getBeforeThisWeekAllMember(thisWeekMonday);
+    }
+
+    @Override
+    public Integer getBeforeThisMonthAllMember(String firstDay4ThisMonth) {
+        return memberMapper.getBeforeThisMonthAllMember(firstDay4ThisMonth);
     }
 }

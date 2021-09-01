@@ -12,4 +12,20 @@
     <select id="getMemberByPhone" parameterType="string" resultType="com.tabwu.health.entity.Member">
         select * from t_member where phoneNumber = #{phoneNumber}
     </select>
+
+    <select id="getMemberByDate" parameterType="string" resultType="int">
+        select count(*) from t_member where regTime = #{today}
+    </select>
+
+    <select id="getAllMember"  resultType="int">
+        select count(*) from t_member
+    </select>
+
+    <select id="getBeforeThisWeekAllMember" parameterType="string" resultType="int">
+        select count(*) from t_member where regTime &gt;= #{thisWeekMonday}
+    </select>
+
+    <select id="getBeforeThisMonthAllMember" parameterType="string" resultType="int">
+        select count(*) from t_member where regTime &gt;= #{firstDay4ThisMonth}
+    </select>
 </mapper>

@@ -240,7 +240,7 @@ public class DateUtils {
         return c.getTime();
     }
     //获得上周一的日期
-    public static Date geLastWeekMonday(Date date) {
+    public static Date getLastWeekMonday(Date date) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(getThisWeekMonday(date));
         cal.add(Calendar.DATE, -7);

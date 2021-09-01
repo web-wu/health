@@ -85,5 +85,45 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.findById(orderId);
     }
 
+    @Override
+    public Integer getTodayOrder(String today) {
+        return orderMapper.getTodayOrder(today);
+    }
+
+    @Override
+    public Integer getAllOrder() {
+        return orderMapper.getAllOrder();
+    }
+
+    @Override
+    public Integer getBeforeThisWeekAllOrder(String thisWeekMonday) {
+        return orderMapper.getBeforeThisWeekAllOrder(thisWeekMonday);
+    }
+
+    @Override
+    public Integer getBeforeThisMonthAllOrder(String firstDay4ThisMonth) {
+        return orderMapper.getBeforeThisMonthAllOrder(firstDay4ThisMonth);
+    }
+
+    @Override
+    public Integer getTodayNumberTrue(String today) {
+        return orderMapper.getTodayNumberTrue(today);
+    }
+
+    @Override
+    public Integer getWeekNumberTrue(String thisWeekMonday) {
+        return orderMapper.getWeekNumberTrue(thisWeekMonday);
+    }
+
+    @Override
+    public Integer getMonthNumberTrue(String firstDay4ThisMonth) {
+        return orderMapper.getMonthNumberTrue(firstDay4ThisMonth);
+    }
+
+    @Override
+    public List<Map> getHotSetmeal() {
+        return orderMapper.getHotSetmeal();
+    }
+
 
 }
